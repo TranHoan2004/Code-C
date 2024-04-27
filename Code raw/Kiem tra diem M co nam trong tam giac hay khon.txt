@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int main() {
+    int xA = 0, yA = 5;
+    int xB = 3, yB = 0;
+    int xC = 4, yC = 7;
+    int xM = 2, yM = 6;
+    double SABC = 1/2 * (xA*yB - xB*yA + xB*yC - xC*yB + xC*yA - xA*yC);
+    double SMAB = 1/2 * (xA*yB - xB*yA + xB*yM - xM*yB + xM*yA - xA*yM);
+    double SMAC = 1/2 * (xA*yM - xM*yA + xM*yC - xC*yM + xC*yA - xA*yC);
+    double SMBC = 1/2 * (xM*yB - xB*yM + xB*yC - xC*yB + xC*yM - xM*yC);
+    if (SABC == SMAB + SMAC + SMBC) {
+        printf("trong");
+    }
+    else {
+        printf("khong nam trong");
+    }
+    return 0;
+}

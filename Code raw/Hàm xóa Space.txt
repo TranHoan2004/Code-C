@@ -1,0 +1,32 @@
+Cách 1:
+void removeRedSpaces(char s[]) {
+  int n,low, up, i, j; char x[100];
+  n = strlen(s);
+  i=0; j=n-1;
+  while(i<n && s[i]==' ') i++;
+  low = i;
+  while(j>0 && s[j]==' ') j--;
+  up = j;
+  if(low>up) {strcpy(s,""); return;}
+  strcpy(x,"");
+  i = low; j=0;
+  while(i<=up)
+   {while(i<up && s[i]==' ') i++;
+    while(i<=up && s[i]!=' ') x[j++] = s[i++];
+    if(i<=up) x[j++] = ' ';
+   }
+  x[j] = '\0';
+  strcpy(s,x);
+}
+
+Cách 2:
+char *rtrim(char *str) {
+        char *end;
+        // Trim trailing space
+        end = str + strlen(str) - 1;
+        while(end > str && isspace((unsigned char)*end)) end--;
+        // Write new null terminator character
+        end[1] = '\0';
+        return str;
+    }
+Gọi hàm: rtrim(str);
